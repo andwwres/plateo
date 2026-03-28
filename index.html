@@ -5,41 +5,58 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#0a0a0a">
 <title>Plateo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:system-ui,-apple-system,sans-serif;background:#0a0a0a;color:#e5e5e5;min-height:100vh;max-width:480px;margin:0 auto;padding-bottom:72px}
-.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#111;border-top:1px solid #222;display:flex;z-index:50;padding:6px 0 max(6px,env(safe-area-inset-bottom))}
-.tb{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0;font-size:10px;color:#555;border:none;background:none;cursor:pointer}
-.tb.on{color:#22c55e}
-.ti{font-size:20px}
-.cd{background:#1a1a1a;border-radius:12px;padding:14px;margin-bottom:10px;cursor:pointer;transition:.15s}
-.cd:active{background:#222}
-.bg{display:inline-block;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:600}
-.bn{background:#22c55e;color:#fff;border:none;border-radius:10px;padding:12px;font-weight:700;font-size:14px;cursor:pointer;width:100%}
-.bn:active{background:#16a34a}
-.bng{background:rgba(34,197,94,.15);color:#22c55e;border:none;border-radius:10px;padding:12px;font-weight:700;font-size:14px;cursor:pointer;width:100%}
-.bnd{background:#1a1a1a;color:#888;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:16px}
-input,select,textarea{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:10px;padding:12px;color:#e5e5e5;font-size:14px;width:100%;font-family:inherit}
-input:focus,textarea:focus{outline:none;border-color:#22c55e}
-.fb{padding:8px 16px;border-radius:20px;border:none;font-size:13px;font-weight:500;cursor:pointer;background:#1a1a1a;color:#888;white-space:nowrap}
-.fb.on{background:#22c55e;color:#fff}
-.ck{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:14px;cursor:pointer}
-.cx{width:22px;height:22px;border-radius:6px;border:2px solid #444;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.cx.dn{background:#22c55e;border-color:#22c55e}
-.pg{display:none;padding:16px;animation:fi .15s}.pg.on{display:block}
-@keyframes fi{from{opacity:0}to{opacity:1}}
-.sn{width:24px;height:24px;border-radius:50%;background:#22c55e;color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;flex-shrink:0}
-.mx{background:#1a1a1a;border-radius:10px;padding:10px;text-align:center}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0a0a0a;background-image:radial-gradient(ellipse at 15% 15%,rgba(22,163,74,0.06) 0%,transparent 55%),radial-gradient(ellipse at 85% 85%,rgba(15,26,15,0.9) 0%,transparent 55%);color:#e5e5e5;min-height:100vh;max-width:480px;margin:0 auto;padding-bottom:84px}
+.tab-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:rgba(10,10,10,0.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,0.06);display:flex;z-index:50;padding:8px 0 max(8px,env(safe-area-inset-bottom))}
+.tb{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 0;font-size:10px;font-weight:500;color:#555;border:none;background:none;cursor:pointer;transition:color .2s ease;letter-spacing:.02em;font-family:inherit}
+.tb .ti{width:22px;height:22px;transition:filter .2s ease,transform .2s ease}
+.tb.on{color:#4ade80}
+.tb.on .ti{filter:drop-shadow(0 0 6px rgba(74,222,128,0.85))}
+.cd{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:16px;margin-bottom:12px;cursor:pointer;transition:all .2s ease;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 4px 24px rgba(0,0,0,0.3)}
+.cd:active{background:rgba(255,255,255,0.08);transform:scale(0.99)}
+.bg{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:600;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1)}
+.bn{background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;border:none;border-radius:12px;padding:14px;font-weight:700;font-size:15px;cursor:pointer;width:100%;font-family:inherit;transition:all .2s ease;box-shadow:0 4px 20px rgba(34,197,94,0.25);letter-spacing:.01em}
+.bn:active{background:linear-gradient(135deg,#15803d,#16a34a);transform:scale(0.98)}
+.bng{background:rgba(34,197,94,0.08);color:#4ade80;border:1px solid rgba(34,197,94,0.2);border-radius:12px;padding:14px;font-weight:600;font-size:14px;cursor:pointer;width:100%;font-family:inherit;transition:all .2s ease}
+.bng:active{background:rgba(34,197,94,0.14);transform:scale(0.98)}
+.bnd{background:rgba(255,255,255,0.05);color:#888;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;cursor:pointer;font-family:inherit;font-size:14px;transition:all .2s ease}
+.bnd:active{background:rgba(255,255,255,0.1);color:#e5e5e5}
+input,select,textarea{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:#e5e5e5;font-size:14px;width:100%;font-family:inherit;transition:border-color .2s ease,box-shadow .2s ease;outline:none;-webkit-appearance:none}
+input:focus,textarea:focus,select:focus{border-color:rgba(34,197,94,0.5);box-shadow:0 0 0 3px rgba(34,197,94,0.08)}
+input::placeholder,textarea::placeholder{color:#444}
+select option{background:#111;color:#e5e5e5}
+.fb{padding:8px 16px;border-radius:20px;border:1px solid rgba(255,255,255,0.07);font-size:13px;font-weight:500;cursor:pointer;background:rgba(255,255,255,0.04);color:#666;white-space:nowrap;font-family:inherit;transition:all .2s ease}
+.fb.on{background:rgba(34,197,94,0.12);color:#4ade80;border-color:rgba(34,197,94,0.28)}
+.ck{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:14px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,0.04);transition:opacity .2s ease}
+.ck:last-child{border-bottom:none}
+.cx{width:22px;height:22px;border-radius:7px;border:2px solid rgba(255,255,255,0.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s ease}
+.cx.dn{background:#22c55e;border-color:#22c55e;box-shadow:0 0 10px rgba(34,197,94,0.35)}
+.pg{display:none;padding:20px;animation:fi .2s ease}
+.pg.on{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.sn{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;box-shadow:0 2px 8px rgba(34,197,94,0.35)}
+.mx{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:12px 8px;text-align:center}
+.sl{font-size:11px;font-weight:600;color:#4ade80;text-transform:uppercase;letter-spacing:.09em;margin:16px 0 8px;display:flex;align-items:center;gap:6px}
+.qtag{background:rgba(251,191,36,0.1);color:#fbbf24;border:1px solid rgba(251,191,36,0.18);border-radius:6px;padding:2px 8px;font-size:10px;font-weight:600}
+.mbar-wrap{margin-top:6px;height:4px;background:rgba(255,255,255,0.07);border-radius:2px;overflow:hidden}
+.mbar{height:4px;border-radius:2px;transition:width .5s ease}
+.filter-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.filter-row::-webkit-scrollbar{display:none}
+.dash-header{background:linear-gradient(160deg,rgba(22,163,74,0.12) 0%,rgba(10,10,10,0) 65%);padding:28px 20px 20px;border-bottom:1px solid rgba(34,197,94,0.08)}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <nav class="tab-bar" id="tb">
-<button class="tb on" data-t="home"><span class="ti">🏠</span>Inicio</button>
-<button class="tb" data-t="plan"><span class="ti">📅</span>Plan</button>
-<button class="tb" data-t="recipes"><span class="ti">📖</span>Recetas</button>
-<button class="tb" data-t="shop"><span class="ti">🛒</span>Compras</button>
-<button class="tb" data-t="fridge"><span class="ti">🧊</span>Nevera</button>
+<button class="tb on" data-t="home"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Inicio</button>
+<button class="tb" data-t="plan"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Plan</button>
+<button class="tb" data-t="recipes"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>Recetas</button>
+<button class="tb" data-t="shop"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.97-1.67l1.38-7.33H6"/></svg>Compras</button>
+<button class="tb" data-t="fridge"><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/></svg>Nevera</button>
 </nav>
 <script>
 const R=[
@@ -99,21 +116,209 @@ function go(){return{desayuno:pk(S.recs.filter(r=>r.t==="desayuno"),3),almuerzo:
 if(!S.plan)S.plan=gp();if(!S.opts)S.opts=go();
 const $=id=>document.getElementById(id);
 const ME={desayuno:"☀️",almuerzo:"🍽️",cena:"🌙"};
-function mc(r,st){return'<div class="cd" onclick="S.did='+r.id+';dr()">'+(st?'<div style="font-size:11px;color:#888;margin-bottom:3px">'+ME[r.t]+' '+r.t[0].toUpperCase()+r.t.slice(1)+'</div>':'')+'<div style="font-weight:600;font-size:14px">'+r.n+'</div><div style="display:flex;gap:12px;margin-top:5px;font-size:12px;color:#888"><span>'+r.k+' kcal</span><span>'+r.m+' min</span>'+(r.q?'<span style="color:#fbbf24">🔥 Rápida</span>':'')+'</div></div>'}
-function det(r){return'<div class="pg on"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer" onclick="S.did=null;dr()"><span style="font-size:24px">‹</span><h2 style="font-size:18px;font-weight:700">'+r.n+'</h2></div><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px"><span class="bg" style="background:#166534;color:#4ade80">⏱ '+r.m+' min</span><span class="bg" style="background:#7c2d12;color:#fb923c">🔥 '+r.k+' kcal</span><span class="bg" style="background:#1e3a5f;color:#60a5fa;text-transform:capitalize">'+r.t+'</span>'+(r.q?'<span class="bg" style="background:#854d0e;color:#fbbf24">⚡ Rápida</span>':'')+'</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:20px"><div class="mx"><div style="color:#4ade80;font-weight:700;font-size:18px">'+r.p+'g</div><div style="font-size:11px;color:#888">Proteínas</div></div><div class="mx"><div style="color:#facc15;font-weight:700;font-size:18px">'+r.c+'g</div><div style="font-size:11px;color:#888">Carbos</div></div><div class="mx"><div style="color:#f87171;font-weight:700;font-size:18px">'+r.g+'g</div><div style="font-size:11px;color:#888">Grasas</div></div></div><h3 style="color:#22c55e;font-weight:700;margin-bottom:10px">Ingredientes</h3><div class="cd" style="cursor:default">'+r.i.map(function(x){return'<div style="display:flex;justify-content:space-between;padding:4px 0;font-size:14px"><span>'+x[0]+'</span><span style="color:#888">'+x[1]+' '+x[2]+'</span></div>'}).join('')+'</div><h3 style="color:#22c55e;font-weight:700;margin:16px 0 10px">Instrucciones</h3><div class="cd" style="cursor:default">'+r.s.map(function(x,j){return'<div style="display:flex;gap:10px;padding:6px 0;font-size:14px"><span class="sn">'+(j+1)+'</span><span>'+x+'</span></div>'}).join('')+'</div></div>'}
+
+function mc(r,st){
+  return '<div class="cd" onclick="S.did='+r.id+';dr()">'
+  +(st?'<div style="display:flex;gap:6px;align-items:center;margin-bottom:8px"><span style="font-size:13px">'+ME[r.t]+'</span><span style="font-size:11px;font-weight:600;color:#4ade80;text-transform:capitalize;letter-spacing:.03em">'+r.t+'</span></div>':'')
+  +'<div style="font-weight:600;font-size:14px;line-height:1.4;color:#f0f0f0;margin-bottom:10px">'+r.n+'</div>'
+  +'<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">'
+  +'<span class="bg" style="color:#4ade80;border-color:rgba(74,222,128,0.2);background:rgba(74,222,128,0.07)">⚡ '+r.k+' kcal</span>'
+  +'<span class="bg" style="color:#94a3b8">⏱ '+r.m+' min</span>'
+  +(r.q?'<span class="qtag">Rápida</span>':'')
+  +'</div></div>'
+}
+
+function det(r){
+  var tc=r.p*4+r.c*4+r.g*9;
+  var pp=tc>0?Math.min(Math.round(r.p*4/tc*100),100):33;
+  var cp=tc>0?Math.min(Math.round(r.c*4/tc*100),100):33;
+  var gp=tc>0?Math.min(Math.round(r.g*9/tc*100),100):33;
+  return '<div class="pg on">'
+  +'<div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer" onclick="S.did=null;dr()">'
+  +'<div style="width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;color:#888;flex-shrink:0">‹</div>'
+  +'<h2 style="font-size:17px;font-weight:700;line-height:1.3;color:#f0f0f0">'+r.n+'</h2>'
+  +'</div>'
+  +'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">'
+  +'<span class="bg" style="color:#4ade80;border-color:rgba(74,222,128,0.25);background:rgba(74,222,128,0.08)">⏱ '+r.m+' min</span>'
+  +'<span class="bg" style="color:#fb923c;border-color:rgba(251,146,60,0.25);background:rgba(251,146,60,0.08)">🔥 '+r.k+' kcal</span>'
+  +'<span class="bg" style="color:#60a5fa;border-color:rgba(96,165,250,0.25);background:rgba(96,165,250,0.08);text-transform:capitalize">'+r.t+'</span>'
+  +(r.q?'<span class="bg" style="color:#fbbf24;border-color:rgba(251,191,36,0.25);background:rgba(251,191,36,0.08)">⚡ Rápida</span>':'')
+  +'</div>'
+  +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px">'
+  +'<div class="mx"><div style="color:#818cf8;font-weight:700;font-size:20px;line-height:1">'+r.p+'<span style="font-size:12px;font-weight:500">g</span></div><div style="font-size:10px;color:#555;margin:4px 0;letter-spacing:.04em">PROT</div><div class="mbar-wrap"><div class="mbar" style="width:'+pp+'%;background:linear-gradient(90deg,#6366f1,#818cf8)"></div></div></div>'
+  +'<div class="mx"><div style="color:#facc15;font-weight:700;font-size:20px;line-height:1">'+r.c+'<span style="font-size:12px;font-weight:500">g</span></div><div style="font-size:10px;color:#555;margin:4px 0;letter-spacing:.04em">CARBS</div><div class="mbar-wrap"><div class="mbar" style="width:'+cp+'%;background:linear-gradient(90deg,#ca8a04,#facc15)"></div></div></div>'
+  +'<div class="mx"><div style="color:#f87171;font-weight:700;font-size:20px;line-height:1">'+r.g+'<span style="font-size:12px;font-weight:500">g</span></div><div style="font-size:10px;color:#555;margin:4px 0;letter-spacing:.04em">GRAS</div><div class="mbar-wrap"><div class="mbar" style="width:'+gp+'%;background:linear-gradient(90deg,#dc2626,#f87171)"></div></div></div>'
+  +'</div>'
+  +'<div class="sl">📋 Ingredientes</div>'
+  +'<div class="cd" style="cursor:default;padding:8px 16px">'
+  +r.i.map(function(x){return '<div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.05)"><span style="color:#d0d0d0">'+x[0]+'</span><span style="color:#4ade80;font-weight:500;font-size:13px">'+x[1]+' '+x[2]+'</span></div>'}).join('')
+  +'</div>'
+  +'<div class="sl" style="margin-top:4px">👨‍🍳 Instrucciones</div>'
+  +'<div class="cd" style="cursor:default;padding:8px 16px">'
+  +r.s.map(function(x,j){return '<div style="display:flex;gap:12px;padding:10px 0;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.04);align-items:flex-start;line-height:1.5"><span class="sn">'+(j+1)+'</span><span style="color:#d0d0d0">'+x+'</span></div>'}).join('')
+  +'</div>'
+  +'</div>'
+}
+
 function dr(){
-var a=$('app');
-if(S.did){var r=S.recs.find(function(x){return x.id===S.did});if(r){a.innerHTML=det(r);return}}
-if(S.add){a.innerHTML='<div class="pg on"><div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;cursor:pointer" onclick="S.add=false;dr()"><span style="font-size:24px">‹</span><h2 style="font-size:18px;font-weight:700">Nueva Receta</h2></div><div style="display:flex;flex-direction:column;gap:12px"><div><label style="font-size:12px;color:#888">Nombre</label><input id="xn" placeholder="Ej: Pasta al pesto"/></div><div><label style="font-size:12px;color:#888">Tipo</label><select id="xt"><option value="desayuno">Desayuno</option><option value="almuerzo">Almuerzo</option><option value="cena">Cena</option></select></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px"><div><label style="font-size:12px;color:#888">Tiempo (min)</label><input id="xm" type="number" value="15"/></div><div><label style="font-size:12px;color:#888">Calorías</label><input id="xk" type="number" value="400"/></div></div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px"><div><label style="font-size:12px;color:#888">Prot</label><input id="xp" type="number" value="20"/></div><div><label style="font-size:12px;color:#888">Carbs</label><input id="xc" type="number" value="30"/></div><div><label style="font-size:12px;color:#888">Grasas</label><input id="xg" type="number" value="15"/></div></div><div><label style="font-size:12px;color:#888">Ingredientes (coma)</label><textarea id="xi" rows="3" placeholder="Pollo 400g, arroz 1 taza"></textarea></div><div><label style="font-size:12px;color:#888">Instrucciones (línea)</label><textarea id="xs" rows="4" placeholder="Paso 1"></textarea></div><button class="bn" onclick="ar()">Guardar</button></div></div>';return}
-var h='';
-if(S.tab==='home'){var td=S.plan[new Date().getDay()===0?6:new Date().getDay()-1];var tot=(td.d?td.d.k:0)+(td.a?td.a.k:0)+(td.c?td.c.k:0);h='<div class="pg on"><div style="text-align:center;padding:16px 0"><h1 style="font-size:24px">🥗 Plateo</h1><p style="color:#888;font-size:14px;margin-top:4px">Tu plan de hoy</p></div><div class="cd" style="text-align:center;cursor:default"><span style="font-size:28px;font-weight:700;color:#22c55e">'+tot+'</span><span style="color:#888;margin-left:8px">kcal hoy</span></div><div style="font-size:11px;color:#888;margin:4px 0">☀️ Desayuno</div>'+mc(td.d,false)+'<div style="font-size:11px;color:#888;margin:4px 0">🍽️ Almuerzo</div>'+mc(td.a,false)+'<div style="font-size:11px;color:#888;margin:4px 0">🌙 Cena</div>'+mc(td.c,false)+'<button class="bng" style="margin-top:12px" onclick="S.opts=go();S.tab=\'today\';dr()">¿Qué como hoy? — Ver opciones</button></div>'}
-else if(S.tab==='today'){var o=S.opts;h='<div class="pg on"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h2 style="font-size:20px;font-weight:700">¿Qué como hoy?</h2><button class="bnd" onclick="S.opts=go();dr()">🔄</button></div>';["desayuno","almuerzo","cena"].forEach(function(t){h+='<h3 style="color:#22c55e;font-weight:700;margin:12px 0 8px">'+ME[t]+' '+t[0].toUpperCase()+t.slice(1)+'</h3>';(o[t]||[]).forEach(function(r){h+=mc(r,false)})});h+='<button class="bnd" style="width:100%;margin-top:12px" onclick="S.tab=\'home\';dr()">← Volver</button></div>'}
-else if(S.tab==='plan'){h='<div class="pg on"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h2 style="font-size:20px;font-weight:700">Plan Semanal</h2><button class="bnd" onclick="S.plan=gp();dr()">🔄</button></div>';S.plan.forEach(function(d,j){var tot=(d.d?d.d.k:0)+(d.a?d.a.k:0)+(d.c?d.c.k:0);h+='<div class="cd" onclick="S.exp['+j+']=!S.exp['+j+'];dr()"><div style="display:flex;justify-content:space-between"><span style="font-weight:700">'+d.dy+'</span><span style="font-size:13px;color:#22c55e">'+tot+' kcal</span></div>'+(S.exp[j]?'<div style="margin-top:10px;border-top:1px solid #2a2a2a;padding-top:10px"><div style="font-size:13px;padding:4px 0;cursor:pointer" onclick="event.stopPropagation();S.did='+d.d.id+';dr()">☀️ '+d.d.n+' <span style="color:#888">'+d.d.k+'kcal</span></div><div style="font-size:13px;padding:4px 0;cursor:pointer" onclick="event.stopPropagation();S.did='+d.a.id+';dr()">🍽️ '+d.a.n+' <span style="color:#888">'+d.a.k+'kcal</span></div><div style="font-size:13px;padding:4px 0;cursor:pointer" onclick="event.stopPropagation();S.did='+d.c.id+';dr()">🌙 '+d.c.n+' <span style="color:#888">'+d.c.k+'kcal</span></div></div>':'')+'</div>'});h+='</div>'}
-else if(S.tab==='recipes'){var fl=S.recs.filter(function(r){if(S.flt!=="todas"&&r.t!==S.flt)return false;if(S.srch&&r.n.toLowerCase().indexOf(S.srch.toLowerCase())===-1)return false;return true});h='<div class="pg on"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px"><h2 style="font-size:20px;font-weight:700">Recetario</h2><button style="background:#22c55e;color:#fff;border:none;border-radius:8px;padding:8px 14px;cursor:pointer;font-size:16px" onclick="S.add=true;dr()">＋</button></div><div style="position:relative;margin-bottom:12px"><span style="position:absolute;left:12px;top:12px;color:#888">🔍</span><input id="sinp" style="padding-left:36px" placeholder="Buscar receta..." value="'+S.srch+'" oninput="S.srch=this.value;dr()"/></div><div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:8px">';["todas","desayuno","almuerzo","cena"].forEach(function(f){h+='<button class="fb '+(S.flt===f?'on':'')+'" onclick="S.flt=\''+f+'\';dr()">'+(f==='todas'?'Todas':f[0].toUpperCase()+f.slice(1))+'</button>'});h+='</div><div style="font-size:13px;color:#888;margin-bottom:8px">'+fl.length+' recetas</div>';fl.forEach(function(r){h+=mc(r,true)});h+='</div>'}
-else if(S.tab==='shop'){var it={};S.plan.forEach(function(d){[d.d,d.a,d.c].forEach(function(r){if(!r)return;r.i.forEach(function(x){var k=x[0].toLowerCase();if(!it[k])it[k]={n:x[0],q:[]};if(x[1])it[k].q.push(x[1]+' '+x[2])})})});var ls=Object.values(it);h='<div class="pg on"><h2 style="font-size:20px;font-weight:700;margin-bottom:4px">Lista de Compras</h2><p style="font-size:13px;color:#888;margin-bottom:16px">Del plan semanal · '+ls.length+' items</p><div class="cd" style="cursor:default">';ls.forEach(function(x,j){h+='<div class="ck" onclick="S.chk['+j+']=!S.chk['+j+'];dr()"><div class="cx '+(S.chk[j]?'dn':'')+'">'+(S.chk[j]?'✓':'')+'</div><span style="'+(S.chk[j]?'text-decoration:line-through;color:#555':'')+'">'+x.n+'</span></div>'});h+='</div></div>'}
-else if(S.tab==='fridge'){h='<div class="pg on"><h2 style="font-size:20px;font-weight:700;margin-bottom:16px">Mi Nevera</h2><div style="display:flex;gap:8px;margin-bottom:16px"><input id="fi" placeholder="Agregar ingrediente..." onkeydown="if(event.key===\'Enter\')af()"/><button style="background:#22c55e;color:#fff;border:none;border-radius:10px;padding:0 16px;cursor:pointer;font-size:20px;flex-shrink:0" onclick="af()">＋</button></div>';if(S.fridge.length===0){h+='<div style="text-align:center;padding:60px 0;color:#555"><div style="font-size:48px;margin-bottom:12px">🧊</div><p>Tu nevera está vacía</p><p style="font-size:13px;margin-top:4px">Agrega ingredientes</p></div>'}else{S.fridge.forEach(function(x,j){h+='<div class="cd" style="display:flex;justify-content:space-between;align-items:center;cursor:default"><span>'+x+'</span><button style="background:none;border:none;color:#f87171;cursor:pointer;font-size:18px;padding:4px 8px" onclick="S.fridge.splice('+j+',1);dr()">✕</button></div>'})}h+='</div>'}
-a.innerHTML=h;
-document.querySelectorAll('.tb').forEach(function(b){b.classList.toggle('on',b.dataset.t===S.tab||(S.tab==='today'&&b.dataset.t==='home'))});
+  var a=$('app');
+  if(S.did){var r=S.recs.find(function(x){return x.id===S.did});if(r){a.innerHTML=det(r);return}}
+  if(S.add){
+    a.innerHTML='<div class="pg on">'
+    +'<div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;cursor:pointer" onclick="S.add=false;dr()">'
+    +'<div style="width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;color:#888;flex-shrink:0">‹</div>'
+    +'<div><div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Nueva</div><h2 style="font-size:20px;font-weight:700;color:#f0f0f0">Agregar Receta</h2></div>'
+    +'</div>'
+    +'<div style="display:flex;flex-direction:column;gap:14px">'
+    +'<div><label style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px">Nombre del plato</label><input id="xn" placeholder="Ej: Pasta al pesto"/></div>'
+    +'<div><label style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px">Tipo de comida</label><select id="xt"><option value="desayuno">☀️ Desayuno</option><option value="almuerzo">🍽️ Almuerzo</option><option value="cena">🌙 Cena</option></select></div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><div><label style="font-size:11px;color:#666;font-weight:500;display:block;margin-bottom:6px">Tiempo (min)</label><input id="xm" type="number" value="15"/></div><div><label style="font-size:11px;color:#666;font-weight:500;display:block;margin-bottom:6px">Calorías</label><input id="xk" type="number" value="400"/></div></div>'
+    +'<div><label style="font-size:11px;color:#666;font-weight:500;display:block;margin-bottom:8px">Macros</label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px"><div><label style="font-size:10px;color:#818cf8;font-weight:600;display:block;margin-bottom:4px">Proteínas g</label><input id="xp" type="number" value="20"/></div><div><label style="font-size:10px;color:#facc15;font-weight:600;display:block;margin-bottom:4px">Carbos g</label><input id="xc" type="number" value="30"/></div><div><label style="font-size:10px;color:#f87171;font-weight:600;display:block;margin-bottom:4px">Grasas g</label><input id="xg" type="number" value="15"/></div></div></div>'
+    +'<div><label style="font-size:11px;color:#666;font-weight:500;display:block;margin-bottom:6px">Ingredientes <span style="color:#444">(separados por coma)</span></label><textarea id="xi" rows="3" placeholder="Pollo 400g, arroz 1 taza..."></textarea></div>'
+    +'<div><label style="font-size:11px;color:#666;font-weight:500;display:block;margin-bottom:6px">Instrucciones <span style="color:#444">(un paso por línea)</span></label><textarea id="xs" rows="4" placeholder="Paso 1&#10;Paso 2..."></textarea></div>'
+    +'<button class="bn" onclick="ar()">✓ Guardar Receta</button>'
+    +'<div style="height:8px"></div>'
+    +'</div></div>';
+    return
+  }
+  var h='';
+  if(S.tab==='home'){
+    var td=S.plan[new Date().getDay()===0?6:new Date().getDay()-1];
+    var tot=(td.d?td.d.k:0)+(td.a?td.a.k:0)+(td.c?td.c.k:0);
+    var tp=(td.d?td.d.p:0)+(td.a?td.a.p:0)+(td.c?td.c.p:0);
+    var tc2=(td.d?td.d.c:0)+(td.a?td.a.c:0)+(td.c?td.c.c:0);
+    var tg=(td.d?td.d.g:0)+(td.a?td.a.g:0)+(td.c?td.c.g:0);
+    var ppp=Math.min(Math.round(tp/150*100),100);
+    var cpp=Math.min(Math.round(tc2/250*100),100);
+    var gpp=Math.min(Math.round(tg/80*100),100);
+    h='<div class="pg on">'
+    +'<div class="dash-header">'
+    +'<div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px">Bienvenido</div>'
+    +'<h1 style="font-size:28px;font-weight:700;color:#fff;letter-spacing:-.5px">🥗 Plateo</h1>'
+    +'<p style="color:#555;font-size:13px;margin-top:4px;font-weight:500">Tu asistente de alimentación</p>'
+    +'</div>'
+    +'<div style="padding:0 20px">'
+    +'<div class="cd" style="cursor:default;text-align:center;padding:22px 16px;margin-top:16px">'
+    +'<div style="font-size:10px;color:#4ade80;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px">Total del día</div>'
+    +'<div style="font-size:54px;font-weight:700;color:#fff;line-height:1;text-shadow:0 0 40px rgba(34,197,94,0.3)">'+tot+'</div>'
+    +'<div style="font-size:12px;color:#444;margin-top:6px;font-weight:600;letter-spacing:.08em">KCAL</div>'
+    +'<div style="height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);margin:16px 0"></div>'
+    +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">'
+    +'<div><div style="font-size:15px;font-weight:700;color:#818cf8">'+tp+'g</div><div style="font-size:9px;color:#555;margin:3px 0;letter-spacing:.05em;font-weight:600">PROT</div><div class="mbar-wrap"><div class="mbar" style="width:'+ppp+'%;background:linear-gradient(90deg,#6366f1,#818cf8)"></div></div></div>'
+    +'<div><div style="font-size:15px;font-weight:700;color:#facc15">'+tc2+'g</div><div style="font-size:9px;color:#555;margin:3px 0;letter-spacing:.05em;font-weight:600">CARBS</div><div class="mbar-wrap"><div class="mbar" style="width:'+cpp+'%;background:linear-gradient(90deg,#ca8a04,#facc15)"></div></div></div>'
+    +'<div><div style="font-size:15px;font-weight:700;color:#f87171">'+tg+'g</div><div style="font-size:9px;color:#555;margin:3px 0;letter-spacing:.05em;font-weight:600">GRAS</div><div class="mbar-wrap"><div class="mbar" style="width:'+gpp+'%;background:linear-gradient(90deg,#dc2626,#f87171)"></div></div></div>'
+    +'</div></div>'
+    +'<div class="sl">☀️ Desayuno</div>'+mc(td.d,false)
+    +'<div class="sl">🍽️ Almuerzo</div>'+mc(td.a,false)
+    +'<div class="sl">🌙 Cena</div>'+mc(td.c,false)
+    +'<button class="bng" style="margin-top:4px;margin-bottom:8px" onclick="S.opts=go();S.tab=\'today\';dr()">✨ ¿Qué como hoy? — Ver opciones</button>'
+    +'</div></div>'
+  }
+  else if(S.tab==='today'){
+    var o=S.opts;
+    h='<div class="pg on">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">'
+    +'<div><div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Para hoy</div><h2 style="font-size:22px;font-weight:700;color:#f0f0f0">¿Qué como?</h2></div>'
+    +'<button class="bnd" onclick="S.opts=go();dr()" style="width:44px;height:44px;padding:0;border-radius:12px;font-size:18px;display:flex;align-items:center;justify-content:center">🔄</button>'
+    +'</div>';
+    ["desayuno","almuerzo","cena"].forEach(function(t){
+      h+='<div class="sl">'+ME[t]+' '+t[0].toUpperCase()+t.slice(1)+'</div>';
+      (o[t]||[]).forEach(function(r){h+=mc(r,false)})
+    });
+    h+='<button class="bnd" style="width:100%;margin-top:4px;padding:13px;font-size:14px" onclick="S.tab=\'home\';dr()">← Volver al inicio</button>'
+    +'</div>'
+  }
+  else if(S.tab==='plan'){
+    h='<div class="pg on">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">'
+    +'<div><div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Semana</div><h2 style="font-size:22px;font-weight:700;color:#f0f0f0">Plan Semanal</h2></div>'
+    +'<button class="bnd" onclick="S.plan=gp();dr()" style="width:44px;height:44px;padding:0;border-radius:12px;font-size:18px;display:flex;align-items:center;justify-content:center">🔄</button>'
+    +'</div>';
+    S.plan.forEach(function(d,j){
+      var tot=(d.d?d.d.k:0)+(d.a?d.a.k:0)+(d.c?d.c.k:0);
+      h+='<div class="cd" onclick="S.exp['+j+']=!S.exp['+j+'];dr()">'
+      +'<div style="display:flex;justify-content:space-between;align-items:center">'
+      +'<span style="font-weight:600;font-size:15px;color:#f0f0f0">'+d.dy+'</span>'
+      +'<div style="display:flex;align-items:center;gap:10px">'
+      +'<span style="font-size:13px;font-weight:600;color:#4ade80;text-shadow:0 0 12px rgba(74,222,128,0.35)">'+tot+' kcal</span>'
+      +'<span style="color:#555;font-size:16px;display:inline-block;transition:transform .2s ease;transform:rotate('+(S.exp[j]?'180':'0')+'deg)">⌄</span>'
+      +'</div></div>'
+      +(S.exp[j]?'<div style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;gap:4px">'
+        +'<div style="font-size:13px;padding:8px 10px;cursor:pointer;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center" onclick="event.stopPropagation();S.did='+d.d.id+';dr()"><span><span style="margin-right:6px">☀️</span>'+d.d.n+'</span><span style="color:#555;font-size:12px;flex-shrink:0;margin-left:8px">'+d.d.k+'kcal</span></div>'
+        +'<div style="font-size:13px;padding:8px 10px;cursor:pointer;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center" onclick="event.stopPropagation();S.did='+d.a.id+';dr()"><span><span style="margin-right:6px">🍽️</span>'+d.a.n+'</span><span style="color:#555;font-size:12px;flex-shrink:0;margin-left:8px">'+d.a.k+'kcal</span></div>'
+        +'<div style="font-size:13px;padding:8px 10px;cursor:pointer;border-radius:10px;background:rgba(255,255,255,0.03);display:flex;justify-content:space-between;align-items:center" onclick="event.stopPropagation();S.did='+d.c.id+';dr()"><span><span style="margin-right:6px">🌙</span>'+d.c.n+'</span><span style="color:#555;font-size:12px;flex-shrink:0;margin-left:8px">'+d.c.k+'kcal</span></div>'
+        +'</div>':'')
+      +'</div>'
+    });
+    h+='</div>'
+  }
+  else if(S.tab==='recipes'){
+    var fl=S.recs.filter(function(r){if(S.flt!=="todas"&&r.t!==S.flt)return false;if(S.srch&&r.n.toLowerCase().indexOf(S.srch.toLowerCase())===-1)return false;return true});
+    h='<div class="pg on">'
+    +'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">'
+    +'<div><div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Biblioteca</div><h2 style="font-size:22px;font-weight:700;color:#f0f0f0">Recetario</h2></div>'
+    +'<button style="background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;border:none;border-radius:12px;width:44px;height:44px;cursor:pointer;font-size:22px;font-weight:300;transition:all .2s;box-shadow:0 4px 14px rgba(34,197,94,0.3);display:flex;align-items:center;justify-content:center" onclick="S.add=true;dr()">＋</button>'
+    +'</div>'
+    +'<div style="position:relative;margin-bottom:12px">'
+    +'<span style="position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#555;font-size:15px;pointer-events:none">🔍</span>'
+    +'<input id="sinp" style="padding-left:44px" placeholder="Buscar receta..." value="'+S.srch+'" oninput="S.srch=this.value;dr()"/>'
+    +'</div>'
+    +'<div class="filter-row" style="margin-bottom:14px">';
+    ["todas","desayuno","almuerzo","cena"].forEach(function(f){h+='<button class="fb '+(S.flt===f?'on':'')+'" onclick="S.flt=\''+f+'\';dr()">'+(f==='todas'?'✦ Todas':f[0].toUpperCase()+f.slice(1))+'</button>'});
+    h+='</div>'
+    +'<div style="font-size:12px;color:#444;margin-bottom:12px;font-weight:500">'+fl.length+' recetas</div>';
+    fl.forEach(function(r){h+=mc(r,true)});
+    h+='</div>'
+  }
+  else if(S.tab==='shop'){
+    var it={};
+    S.plan.forEach(function(d){[d.d,d.a,d.c].forEach(function(r){if(!r)return;r.i.forEach(function(x){var k=x[0].toLowerCase();if(!it[k])it[k]={n:x[0],q:[]};if(x[1])it[k].q.push(x[1]+' '+x[2])})})});
+    var ls=Object.values(it);
+    var doneCount=ls.filter(function(_,j){return S.chk[j]}).length;
+    var pct=ls.length>0?Math.round(doneCount/ls.length*100):0;
+    h='<div class="pg on">'
+    +'<div style="margin-bottom:16px"><div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Plan semanal</div>'
+    +'<div style="display:flex;justify-content:space-between;align-items:flex-end"><h2 style="font-size:22px;font-weight:700;color:#f0f0f0">Lista de Compras</h2><span style="font-size:13px;color:#555;font-weight:600">'+doneCount+'/'+ls.length+'</span></div></div>'
+    +'<div style="margin-bottom:4px;display:flex;justify-content:space-between;align-items:center"><span style="font-size:11px;color:#555">Progreso</span><span style="font-size:11px;color:#4ade80;font-weight:600">'+pct+'%</span></div>'
+    +'<div class="mbar-wrap" style="margin-bottom:16px;height:5px;border-radius:3px"><div class="mbar" style="width:'+pct+'%;background:linear-gradient(90deg,#16a34a,#4ade80)"></div></div>'
+    +'<div class="cd" style="cursor:default;padding:8px 16px">';
+    ls.forEach(function(x,j){
+      h+='<div class="ck" onclick="S.chk['+j+']=!S.chk['+j+'];dr()">'
+      +'<div class="cx '+(S.chk[j]?'dn':'')+'">'+(S.chk[j]?'<svg width="11" height="11" viewBox="0 0 12 12" fill="none"><polyline points="2 6 5 9 10 3" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>':'')+'</div>'
+      +'<span style="'+(S.chk[j]?'text-decoration:line-through;color:#444':'color:#e5e5e5')+';font-size:14px;flex:1">'+x.n+'</span>'
+      +(x.q.length?'<span style="font-size:11px;color:#555;flex-shrink:0">'+x.q[0]+'</span>':'')
+      +'</div>'
+    });
+    h+='</div></div>'
+  }
+  else if(S.tab==='fridge'){
+    h='<div class="pg on">'
+    +'<div style="margin-bottom:20px"><div style="font-size:11px;color:#4ade80;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px">Ingredientes</div><h2 style="font-size:22px;font-weight:700;color:#f0f0f0">Mi Nevera</h2></div>'
+    +'<div style="display:flex;gap:8px;margin-bottom:16px">'
+    +'<input id="fi" placeholder="Agregar ingrediente..." onkeydown="if(event.key===\'Enter\')af()" style="flex:1"/>'
+    +'<button style="background:linear-gradient(135deg,#16a34a,#22c55e);color:#fff;border:none;border-radius:12px;padding:0 20px;cursor:pointer;font-size:22px;font-weight:300;flex-shrink:0;box-shadow:0 4px 14px rgba(34,197,94,0.25);transition:all .2s;display:flex;align-items:center;justify-content:center" onclick="af()">＋</button>'
+    +'</div>';
+    if(S.fridge.length===0){
+      h+='<div style="text-align:center;padding:60px 0 40px">'
+      +'<div style="font-size:56px;margin-bottom:16px;filter:drop-shadow(0 0 16px rgba(34,197,94,0.18))">🧊</div>'
+      +'<p style="font-size:15px;color:#555;font-weight:500">Tu nevera está vacía</p>'
+      +'<p style="font-size:13px;color:#333;margin-top:6px">Agrega los ingredientes que tienes</p>'
+      +'</div>'
+    } else {
+      S.fridge.forEach(function(x,j){
+        h+='<div class="cd" style="display:flex;justify-content:space-between;align-items:center;cursor:default;padding:12px 14px;margin-bottom:8px">'
+        +'<div style="display:flex;align-items:center;gap:10px">'
+        +'<div style="width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.6);flex-shrink:0"></div>'
+        +'<span style="font-size:14px;color:#e5e5e5;font-weight:500">'+x+'</span>'
+        +'</div>'
+        +'<button style="background:rgba(248,113,113,0.08);border:1px solid rgba(248,113,113,0.15);color:#f87171;cursor:pointer;font-size:14px;padding:6px 11px;border-radius:8px;line-height:1;transition:all .2s;font-weight:600" onclick="S.fridge.splice('+j+',1);dr()">✕</button>'
+        +'</div>'
+      })
+    }
+    h+='</div>'
+  }
+  a.innerHTML=h;
+  document.querySelectorAll('.tb').forEach(function(b){b.classList.toggle('on',b.dataset.t===S.tab||(S.tab==='today'&&b.dataset.t==='home'))});
 }
 function af(){var inp=$('fi');if(!inp||!inp.value.trim())return;S.fridge.push(inp.value.trim());dr()}
 function ar(){var n=$('xn');if(!n||!n.value)return;S.recs.push({id:S.recs.length+1,n:n.value,t:$('xt').value,m:+$('xm').value,k:+$('xk').value,p:+$('xp').value,c:+$('xc').value,g:+$('xg').value,i:$('xi').value.split(',').map(function(x){return[x.trim(),"",""]}),s:$('xs').value.split('\n').filter(function(x){return x.trim()}),q:+$('xm').value<=15?1:0});S.add=false;dr()}
